@@ -31,6 +31,38 @@
       </div>
      </div>
     </md-toolbar>
+     <!-- Cart grid -->
+     <md-context>
+      <div class=gridView ng-controller="GridCtrl as gridCtrl" >
+       <md-content layout-padding>
+        <md-grid-list
+            md-cols             ="2" 
+            md-cols-md          ="8"
+            md-cols-gt-md       ="12" 
+            md-gutter           ="4px"
+            md-gutter-md        ="8px" 
+            md-gutter-gt-md     ="12px" 
+            md-row-height       ="1:2"
+            md-row-height-md    ="1:1"
+            md-row-height-gt-md ="1:1" 
+            >
+         <md-grid-tile
+            ng-repeat="tile in gridCtrl.shopTiles"
+            ng-style="{
+                 'background-image'  : tile.image
+               , 'background-repeat' : 'no-repeat'
+               , 'background-size'   : '100% 40%'
+            }"
+            md-colspan-gt-sm="{{tile.colspan}}"
+            md-rowspan-gt-sm="{{tile.rowspan}}"
+            >
+          <md-button ng-click="action.buy(tile.label,tile)" class="tileTitle" ng-style="{ 'background' : tile.color }" >{{tile.label}}</md-button>
+          <div class="tileText" ng-style="{ 'background' : tile.backColor }">{{tile.text}}</div>
+        </md-grid-tile>
+       </md-grid-list>
+      </md-content>
+     </div>
+    </md-context>
    </div> 
     
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"                   ></script>

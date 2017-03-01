@@ -69,6 +69,42 @@
             ,   model           :   DB_model  
         } 
     ;
+//  ----------------------------------- --------------------------- ---------------------------------          
+//  Angular code
+//  ----------------------------------- --------------------------- ---------------------------------          
+    app.controller                      ('GridCtrl'                 , function($scope) {
+        _APP.GridCtrl           =   this;
+        _APP.GridCtrl.scope     =   $scope;
+        
+        $scope.action           =   {
+                    buy         :   function    (txt,oo)    {
+                        _log("buy",txt,oo);                                                             // when you click on the label
+                    }
+            
+        };
+        
+        this.allProducts        =   _APP.model.getProductList();
+        this.shopTiles          =   [];
+
+        var tiles=[]
+        ,   allProd = this.allProducts
+        ;
+        for (t in allProd){
+            var tile = allProd[t];
+                                    tiles.push({                                                                //  queue the Object to be shown
+                                backColor   :   tile.backColor
+                            ,   color       :   tile.color    
+                            ,   image       :   tile.image
+                            ,   colspan     :   tile.colSpan
+                            ,   rowspan     :   tile.rowSpan
+                            ,   label       :   tile.className
+                            ,   text        :   tile.text
+                            });
+        }
+        this.shopTiles=tiles;
+
+    });
+    
 
 //  ----------------------------------- --------------------------- ---------------------------------
 //  Data Model
@@ -95,17 +131,17 @@
         this.text       =   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 //  ----------------------------------- --------------------------- ---------------------------------
-    function    Vegetable               ()                          {   Vegetable   .prototype.super(this);
+    function    Vegetable               ()  {   Vegetable   .prototype.super(this);
         this.color          = '#40F060'
         this.image          = "url('img/vegetables.jpg')"
     }
 
-    function    Fruit                   ()                          {   Fruit       .prototype.super(this);
+    function    Fruit                   ()  {   Fruit       .prototype.super(this);
         this.color          = '#E09040'
         this.image          = "url('img/fruits.jpg')"
     }
 
-    function    Meat                    ()                          {   Meat        .prototype.super(this);
+    function    Meat                    ()  {   Meat        .prototype.super(this);
         this.color          = '#E04040'
         this.image          = "url('img/Meats.jpg')"
     }
@@ -135,4 +171,5 @@
     Zucchini    .extends    (Vegetable);
 //  ----------------------------------- --------------------------- ---------------------------------
 
-_log(DB_model.getProductList())
+    _log(DB_model.productTypes);
+
