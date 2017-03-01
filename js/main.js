@@ -34,7 +34,41 @@
                                                   'ngMaterial'
                                               ,   'ngMessages'
                             ])
-
+    ,   DB_model        =   {
+                numProducts     :   111
+            ,   productTypes    :  [Banana
+                                ,   Apple
+                                ,   Orange
+                                ,   Chicken
+                                ,   Beef
+                                ,   Aubergine
+                                ,   Broccoli
+                                ,   Zucchini
+                                ] 
+            ,   rndElement      :   function    (a)             {
+                    return a[Math.floor(Math.random()*a.length)];
+                }
+            ,   randomProduct   :   function    ()              {
+                    var sel = this.rndElement(this.productTypes);
+                    var tile= eval(new sel());
+                    return tile;
+                }
+            ,   getProductList  :   function    ()              {
+                    var list    = []
+                    ,   numProd = this.numProducts;
+                    ;
+                    for (var i = 0; i < numProd; i++) {
+                        list.push(this.randomProduct());
+                    }
+                    return list;
+                }
+        }   
+    ,   _APP            =   {
+                version         :   '0.0.1'
+            ,   author          :   'Paolo Lioy'    
+            ,   model           :   DB_model  
+        } 
+    ;
 
 //  ----------------------------------- --------------------------- ---------------------------------
 //  Data Model
@@ -52,9 +86,6 @@
         }
     }
 //  ----------------------------------- --------------------------- ---------------------------------
-    Array.prototype.rndElement          =   function    ()          {
-        return this[Math.floor(Math.random()*this.length)];
-    }
 //  ----------------------------------- --------------------------- ---------------------------------
     function    ShopTile                ()                          {
         this.backColor  =   '#FFF';
@@ -103,3 +134,5 @@
     Broccoli    .extends    (Vegetable);
     Zucchini    .extends    (Vegetable);
 //  ----------------------------------- --------------------------- ---------------------------------
+
+_log(DB_model.getProductList())
