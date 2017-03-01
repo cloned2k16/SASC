@@ -1,0 +1,21 @@
+{
+        "name"          :   "SASC"
+    ,   "description"   :   "Simple Angular Shopping Cart"    
+    ,   "version"       :   "0.0.1"
+    ,   "author"        :   "Paolo Lioy"
+    ,   "keywords"      :   [
+                            "angular"
+                        ,   "shopping"
+                        ,   "cart"    
+                        
+                        ]
+    ,   "license"       : "MIT"
+    ,   "ignore"        : [
+                            "bower_components"
+                        ]
+    ,   "dependencies"  : {
+                            "doc_ready" : ""
+                            
+                        }
+}
+
