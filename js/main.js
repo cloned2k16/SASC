@@ -22,11 +22,11 @@
                 return UA.match(/BlackBerry/i);
             }
         ,   any                         : function() {
-                return (isMobile.Android() 
-                    ||  isMobile.iOS() 
+                return (isMobile.Android()
+                    ||  isMobile.iOS()
                     ||  isMobile.Windows()
-                    ||  isMobile.BlackBerry() 
-                    ||  isMobile.Opera() 
+                    ||  isMobile.BlackBerry()
+                    ||  isMobile.Opera()
                     );
             }
         }
@@ -34,3 +34,72 @@
                                                   'ngMaterial'
                                               ,   'ngMessages'
                             ])
+
+
+//  ----------------------------------- --------------------------- ---------------------------------
+//  Data Model
+//  ----------------------------------- --------------------------- ---------------------------------
+    Object.prototype.extends            =   function    (parent)    {
+        var oo  = this.prototype.constructor
+
+        oo.prototype              = Object.create(parent.prototype);                                    //  just protoype stuff !
+        oo.prototype.constructor  = oo;                                                                 //  fix misplaced constructor
+        oo.prototype.parent       = parent;                                                             //  hold parent here
+        oo.prototype.super        = (th)    => {                                                        //  super emulated call
+            this.prototype.parent.call(th);
+            th.className    =   oo.name;
+            th.parent       =   parent;
+        }
+    }
+//  ----------------------------------- --------------------------- ---------------------------------
+    Array.prototype.rndElement          =   function    ()          {
+        return this[Math.floor(Math.random()*this.length)];
+    }
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    ShopTile                ()                          {
+        this.backColor  =   '#FFF';
+        this.colSpan    =   2;
+        this.rowSpan    =   3;
+        this.type       =  ND;
+        this.text       =   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    Vegetable               ()                          {   Vegetable   .prototype.super(this);
+        this.color          = '#40F060'
+        this.image          = "url('img/vegetables.jpg')"
+    }
+
+    function    Fruit                   ()                          {   Fruit       .prototype.super(this);
+        this.color          = '#E09040'
+        this.image          = "url('img/fruits.jpg')"
+    }
+
+    function    Meat                    ()                          {   Meat        .prototype.super(this);
+        this.color          = '#E04040'
+        this.image          = "url('img/Meats.jpg')"
+    }
+
+    Vegetable   .extends    (ShopTile);
+    Fruit       .extends    (ShopTile);
+    Meat        .extends    (ShopTile);
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    Banana                  ()  {   Banana      .prototype.super(this); }
+    function    Apple                   ()  {   Apple       .prototype.super(this); }
+    function    Orange                  ()  {   Orange      .prototype.super(this); }
+
+    Banana      .extends    (Fruit);
+    Apple       .extends    (Fruit);
+    Orange      .extends    (Fruit);
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    Chicken                 ()  {   Chicken     .prototype.super(this); }
+    function    Beef                    ()  {   Beef        .prototype.super(this); }
+    Chicken     .extends    (Meat);
+    Beef        .extends    (Meat);
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    Aubergine               ()  {   Aubergine   .prototype.super(this); }
+    function    Broccoli                ()  {   Broccoli    .prototype.super(this); }
+    function    Zucchini                ()  {   Zucchini    .prototype.super(this); }
+    Aubergine   .extends    (Vegetable);
+    Broccoli    .extends    (Vegetable);
+    Zucchini    .extends    (Vegetable);
+//  ----------------------------------- --------------------------- ---------------------------------
