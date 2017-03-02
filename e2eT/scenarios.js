@@ -4,13 +4,22 @@ describe('SASC', function() {
 
     it          ('should stay on the home page'                             , function() {
       browser.get('/');
-      expect(browser.getLocationAbsUrl()).toMatch("");
+      expect(browser.getCurrentUrl()).toMatch("");
     });
 
 
     describe    ('basic Tests'                                              , function() {
         beforeEach(function() {
         });
+
+        it('should have title', function() {
+            expect(browser.getTitle()).toEqual('Simple Angular Shopping Cart');
+        });
+           
+        var el = element(by.id('brndLbl'));    
+
+        //TODO .... put more test here ...
+
         
     });
   
@@ -20,10 +29,9 @@ describe('SASC', function() {
         });
   
         browser.get('/');
-        // .... and more ...
        
+        //TODO .... put more test here ...
     });
 
-    //TODO .... put more test here ...
 });
     
