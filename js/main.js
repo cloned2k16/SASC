@@ -44,6 +44,7 @@
                                 ,   Aubergine
                                 ,   Broccoli
                                 ,   Zucchini
+                                ,   Baguette
                                 ]
             ,   rndElement      :   function    (a)             {
                     return a[Math.floor(Math.random()*a.length)];
@@ -103,6 +104,7 @@
                     categories  :  [{label:'Meats'      ,chk:   true    }
                                 ,   {label:'Fruits'     ,chk:   false   }
                                 ,   {label:'Vegetables' ,chk:   true    }
+                                ,   {label:'Breads'     ,chk:   true    }
                                 ]
                 ,   apply       :   function    ()  {
                     var allTiles    =   _APP.GridCtrl.allProducts
@@ -187,12 +189,18 @@
 
     function    Meat                    ()  {   Meat        .prototype.super(this);
         this.color          = '#E04040'
-        this.image          = "url('img/Meats.jpg')"
+        this.image          = "url('img/meats.jpg')"
+    }
+
+    function    Bread                   ()  {   Bread       .prototype.super(this);
+        this.color          = '#E04040'
+        this.image          = "url('img/breads.jpg')"
     }
 
     Vegetable   .extends    (ShopTile);
     Fruit       .extends    (ShopTile);
     Meat        .extends    (ShopTile);
+    Bread       .extends    (ShopTile);
 //  ----------------------------------- --------------------------- ---------------------------------
     function    Banana                  ()  {   Banana      .prototype.super(this); }
     function    Apple                   ()  {   Apple       .prototype.super(this); }
@@ -213,6 +221,9 @@
     Aubergine   .extends    (Vegetable);
     Broccoli    .extends    (Vegetable);
     Zucchini    .extends    (Vegetable);
+//  ----------------------------------- --------------------------- ---------------------------------
+    function    Baguette                ()  {   Baguette    .prototype.super(this); }
+    Baguette    .extends    (Bread);
 //  ----------------------------------- --------------------------- ---------------------------------
 
 
