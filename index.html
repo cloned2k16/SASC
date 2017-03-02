@@ -34,8 +34,8 @@
     
      <!-- Filter bar -->
      <md-toolbar>
-      <div class="md-toolbar-tools">
-       <div class="filterBar" ng-controller="FilterCtrl as fltCtrl" >
+      <div class="md-toolbar-tools" ng-controller="FilterCtrl as fltCtrl">
+       <div class="filterBar">
         <md-grid-list
             md-cols             ="4" 
             md-cols-md          ="4"
@@ -61,6 +61,7 @@
         </md-grid-tile> 
        </md-grid-list>
       </div>
+       <md-button class="tileCounter">listed:&nbsp;{{filter.numTilesShown}}</md-button>
      </div>
     </md-toolbar> 
     

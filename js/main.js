@@ -105,12 +105,13 @@
 
 
         $scope.filter           =   {
-                    categories  :  [{label:'Meats'      ,chk:   true    }
-                                ,   {label:'Fruits'     ,chk:   false   }
-                                ,   {label:'Vegetables' ,chk:   true    }
-                                ,   {label:'Breads'     ,chk:   true    }
-                                ]
-                ,   apply       :   function    ()  {
+                    categories      :  [{label:'Meats'      ,chk:   true    }
+                                    ,   {label:'Fruits'     ,chk:   true    }
+                                    ,   {label:'Vegetables' ,chk:   true    }
+                                    ,   {label:'Breads'     ,chk:   true    }
+                                    ]
+                ,   numTilesShown   : 0                 
+                ,   apply           :   function    ()  {
                     var allTiles    =   _APP.GridCtrl.allProducts
                     ,   filt        =   this
                     ;
@@ -145,7 +146,9 @@
                             });
                         }
                     }
-                    _APP.GridCtrl.shopTiles=tiles;                                                      //  update view
+                    
+                    this.numTilesShown      = tiles.length;
+                    _APP.GridCtrl.shopTiles = tiles;                                                    //  update view
                 }
 
         };

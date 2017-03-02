@@ -29,6 +29,13 @@
     top                 :   25%;
 }
 
+.tileCounter            {
+    color               :   #FFC;
+    position            :   absolute;
+    right               :   10px;
+    top                 :   25%;
+}
+
 nav                     {
     position            :   absolute;
     display             :   inline-block;
