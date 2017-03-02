@@ -17,7 +17,7 @@
      <!-- Menu bar -->
      <md-toolbar>
       <div class="md-toolbar-tools">
-       <h1 id=brndLbl>Brandname</h1>
+       <h1 id=brndLbl>&reg; Brandname</h1>
        <div>
         <nav class="{{active}}"             ng-click="$event.preventDefault()">
          <a href="#" class="home"           ng-click="active='home'"            >Home</a>
@@ -27,10 +27,43 @@
        </nav>
       </div>
        <div class=menuSel><!-- hidden! -->
-        <p ng-show="active"> >>.>> <b>{{active}}</b></p>
+        <p ng-show="active"> . >> <b>{{active}}</b></p>
       </div>
      </div>
     </md-toolbar>
+    
+     <!-- Filter bar -->
+     <md-toolbar>
+      <div class="md-toolbar-tools">
+       <div class="filterBar" ng-controller="FilterCtrl as fltCtrl" >
+        <md-grid-list
+            md-cols             ="3" 
+            md-cols-md          ="3"
+            md-cols-gt-md       ="3" 
+            md-gutter           ="360px"
+            md-gutter-md        ="360px" 
+            md-gutter-gt-md     ="360px" 
+            md-row-height       ="1:1"
+            md-row-height-gt-md ="1:1" 
+            >
+         <md-grid-tile 
+            ng-repeat           =   "flt in filter.categories track by $index"
+            ng-style            =   "{
+            }"
+            md-colspan-gt-sm    =   "1" 
+            md-rowspan-gt-sm    =   "1"
+            >
+            <md-checkbox  
+                ng-model="filter.categories[$index].chk"       
+                ng-change="filter.apply()"  
+                >{{flt.label}}</md-checkbox>
+            
+        </md-grid-tile> 
+       </md-grid-list>
+      </div>
+     </div>
+    </md-toolbar> 
+    
      <!-- Cart grid -->
      <md-context>
       <div class=gridView ng-controller="GridCtrl as gridCtrl" >

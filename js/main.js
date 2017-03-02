@@ -44,7 +44,7 @@
                                 ,   Aubergine
                                 ,   Broccoli
                                 ,   Zucchini
-                                ] 
+                                ]
             ,   rndElement      :   function    (a)             {
                     return a[Math.floor(Math.random()*a.length)];
                 }
@@ -62,49 +62,93 @@
                     }
                     return list;
                 }
-        }   
+        }
     ,   _APP            =   {
                 version         :   '0.0.1'
-            ,   author          :   'Paolo Lioy'    
-            ,   model           :   DB_model  
-        } 
+            ,   author          :   'Paolo Lioy'
+            ,   model           :   DB_model
+        }
     ;
-//  ----------------------------------- --------------------------- ---------------------------------          
+//  ----------------------------------- --------------------------- ---------------------------------
 //  Angular code
-//  ----------------------------------- --------------------------- ---------------------------------          
+//  ----------------------------------- --------------------------- ---------------------------------
     app.controller                      ('GridCtrl'                 , function($scope) {
         _APP.GridCtrl           =   this;
         _APP.GridCtrl.scope     =   $scope;
-        
+
         $scope.action           =   {
                     buy         :   function    (txt,oo)    {
                         _log("buy",txt,oo);                                                             // when you click on the label
                     }
-            
+
         };
-        
+
         this.allProducts        =   _APP.model.getProductList();
         this.shopTiles          =   [];
 
-        var tiles=[]
-        ,   allProd = this.allProducts
-        ;
-        for (t in allProd){
-            var tile = allProd[t];
-                                    tiles.push({                                                                //  queue the Object to be shown
+        if (_APP.FilterCtrl != ND){
+            _APP.FilterCtrl.scope.filter.apply();
+        }
+
+    });
+//  ----------------------------------- --------------------------- ---------------------------------
+
+//  ----------------------------------- --------------------------- ---------------------------------
+    app.controller                      ('FilterCtrl'               , function FilterCtrl($scope) {
+        _APP.FilterCtrl         =   this;
+        _APP.FilterCtrl.scope   =   $scope;
+
+
+        $scope.filter           =   {
+                    categories  :  [{label:'Meats'      ,chk:   true    }
+                                ,   {label:'Fruits'     ,chk:   false   }
+                                ,   {label:'Vegetables' ,chk:   true    }
+                                ]
+                ,   apply       :   function    ()  {
+                    var allTiles    =   _APP.GridCtrl.allProducts
+                    ,   filt        =   this
+                    ;
+
+                    var tiles       =   [];
+
+                    for (t in allTiles){
+                        var tile     =   allTiles[t]
+                        if (typeof(tile) == FN) continue;                                               //  skip some function ;)
+                        var showIt   =   false                                                          //  assume hidden
+                        ,   tileType =   tile.parent.name+'s'                                           //  to match with label
+                        ;
+
+
+                        for (f in filt.categories) {
+                            var flt=filt.categories[f];
+                            if (typeof(flt) == FN) continue;                                            //  skip some function ;)
+                            if (flt.chk && flt.label== tileType){                                       //  if has to be shown
+                                showIt=true;                                                            //  signal it and break the loop
+                                break;
+                            }
+                        }
+                        if (showIt) {
+                            tiles.push({                                                                //  queue the Object to be shown
                                 backColor   :   tile.backColor
-                            ,   color       :   tile.color    
+                            ,   color       :   tile.color
                             ,   image       :   tile.image
                             ,   colspan     :   tile.colSpan
                             ,   rowspan     :   tile.rowSpan
                             ,   label       :   tile.className
                             ,   text        :   tile.text
                             });
-        }
-        this.shopTiles=tiles;
+                        }
+                    }
+                    _APP.GridCtrl.shopTiles=tiles;                                                      //  update view
+                }
 
+        };
+
+        if (_APP.GridCtrl != ND){
+            $scope.filter.apply();
+        }
     });
-    
+//  ----------------------------------- --------------------------- ---------------------------------
 
 //  ----------------------------------- --------------------------- ---------------------------------
 //  Data Model
@@ -171,5 +215,4 @@
     Zucchini    .extends    (Vegetable);
 //  ----------------------------------- --------------------------- ---------------------------------
 
-    _log(DB_model.productTypes);
 
