@@ -1,5 +1,5 @@
 {
-        "name"          :   "sasc"
+        "name"          :   "SASC"
     ,   "description"   :   "Simple Angular Shopping Cart"    
     ,   "version"       :   "0.0.1"
     ,   "author"        :   "Paolo Lioy"
@@ -14,7 +14,7 @@
                             "bower_components"
                         ]
     ,   "dependencies"  : {
-                            "doc_ready" : ""
+                            "fs" : ""
                             
                         }
 }
