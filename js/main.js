@@ -45,6 +45,10 @@
                                 ,   Broccoli
                                 ,   Zucchini
                                 ,   Baguette
+                                ,   Cherry
+                                ,   Pork
+                                ,   Carrot
+                                ,   Pretzel
                                 ]
             ,   rndElement      :   function    (a)             {
                     return a[Math.floor(Math.random()*a.length)];
@@ -205,25 +209,34 @@
     function    Banana                  ()  {   Banana      .prototype.super(this); }
     function    Apple                   ()  {   Apple       .prototype.super(this); }
     function    Orange                  ()  {   Orange      .prototype.super(this); }
+    function    Cherry                  ()  {   Cherry      .prototype.super(this); this.backColor='#FFE'; }
 
     Banana      .extends    (Fruit);
     Apple       .extends    (Fruit);
     Orange      .extends    (Fruit);
+    Cherry      .extends    (Fruit);
 //  ----------------------------------- --------------------------- ---------------------------------
     function    Chicken                 ()  {   Chicken     .prototype.super(this); }
     function    Beef                    ()  {   Beef        .prototype.super(this); }
+    function    Pork                    ()  {   Pork        .prototype.super(this); this.backColor='#FEE'; }    
+
     Chicken     .extends    (Meat);
     Beef        .extends    (Meat);
+    Pork        .extends    (Meat);
 //  ----------------------------------- --------------------------- ---------------------------------
     function    Aubergine               ()  {   Aubergine   .prototype.super(this); }
     function    Broccoli                ()  {   Broccoli    .prototype.super(this); }
     function    Zucchini                ()  {   Zucchini    .prototype.super(this); }
+    function    Carrot                  ()  {   Carrot      .prototype.super(this); this.backColor='#FDD'; }    
+
     Aubergine   .extends    (Vegetable);
     Broccoli    .extends    (Vegetable);
     Zucchini    .extends    (Vegetable);
+    Carrot      .extends    (Vegetable);
 //  ----------------------------------- --------------------------- ---------------------------------
     function    Baguette                ()  {   Baguette    .prototype.super(this); }
+    function    Pretzel                 ()  {   Pretzel     .prototype.super(this); this.backColor='#DFF'; }    
+
     Baguette    .extends    (Bread);
+    Pretzel     .extends    (Bread);
 //  ----------------------------------- --------------------------- ---------------------------------
-
-
