@@ -209,9 +209,13 @@
     Meat        .extends    (ShopTile);
     Bread       .extends    (ShopTile);
 //  ----------------------------------- --------------------------- ---------------------------------
-    function    Banana                  ()  {   Banana      .prototype.super(this); }
+    function    Banana                  ()  {   Banana      .prototype.super(this); 
+        this.image          = "url('img/banana.jpg')"
+    }
     function    Apple                   ()  {   Apple       .prototype.super(this); }
-    function    Orange                  ()  {   Orange      .prototype.super(this); }
+    function    Orange                  ()  {   Orange      .prototype.super(this); 
+        this.image          = "url('img/orange.jpg')"
+    }
     function    Cherry                  ()  {   Cherry      .prototype.super(this); this.backColor='#FFE'; }
 
     Banana      .extends    (Fruit);
@@ -228,16 +232,22 @@
     Pork        .extends    (Meat);
 //  ----------------------------------- --------------------------- ---------------------------------
     function    Aubergine               ()  {   Aubergine   .prototype.super(this); }
-    function    Broccoli                ()  {   Broccoli    .prototype.super(this); }
+    function    Broccoli                ()  {   Broccoli    .prototype.super(this); 
+        this.image          = "url('img/broccoli.jpg')"
+    }
     function    Zucchini                ()  {   Zucchini    .prototype.super(this); }
-    function    Carrot                  ()  {   Carrot      .prototype.super(this); this.backColor='#FDD'; }    
+    function    Carrot                  ()  {   Carrot      .prototype.super(this); this.backColor='#FDD';     
+        this.image          = "url('img/carrot.jpg')"
+    }
 
     Aubergine   .extends    (Vegetable);
     Broccoli    .extends    (Vegetable);
     Zucchini    .extends    (Vegetable);
     Carrot      .extends    (Vegetable);
 //  ----------------------------------- --------------------------- ---------------------------------
-    function    Baguette                ()  {   Baguette    .prototype.super(this); }
+    function    Baguette                ()  {   Baguette    .prototype.super(this); 
+        this.image          = "url('img/baguette.jpg')"
+    }
     function    Pretzel                 ()  {   Pretzel     .prototype.super(this); this.backColor='#DFF'; }    
 
     Baguette    .extends    (Bread);
