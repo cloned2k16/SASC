@@ -53,9 +53,10 @@
             ,   rndElement      :   function    (a)             {
                     return a[Math.floor(Math.random()*a.length)];
                 }
-            ,   randomProduct   :   function    ()              {
-                    var sel = this.rndElement(this.productTypes);
-                    var tile= eval(new sel());
+            ,   randomProduct   :   function    (k)             {
+                    var sel     = this.rndElement(this.productTypes);
+                    var tile    = eval(new sel());
+                        tile.key= k;
                     return tile;
                 }
             ,   getProductList  :   function    ()              {
@@ -63,7 +64,7 @@
                     ,   numProd = this.numProducts;
                     ;
                     for (var i = 0; i < numProd; i++) {
-                        list.push(this.randomProduct());
+                        list.push(this.randomProduct(i+1));
                     }
                     return list;
                 }
@@ -136,7 +137,8 @@
                         }
                         if (showIt) {
                             tiles.push({                                                                //  queue the Object to be shown
-                                backColor   :   tile.backColor
+                                key         :   tile.key  
+                            ,   backColor   :   tile.backColor
                             ,   color       :   tile.color
                             ,   image       :   tile.image
                             ,   colspan     :   tile.colSpan
@@ -200,7 +202,7 @@
     }
 
     function    Bread                   ()  {   Bread       .prototype.super(this);
-        this.color          = '#E04040'
+        this.color          = '#D0D040'
         this.image          = "url('img/breads.jpg')"
     }
 
