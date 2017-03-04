@@ -218,26 +218,36 @@
     function    Orange                  ()  {   Orange      .prototype.super(this); 
         this.image          = "url('img/orange.jpg')"
     }
-    function    Cherry                  ()  {   Cherry      .prototype.super(this); this.backColor='#FFE'; }
+    function    Cherry                  ()  {   Cherry      .prototype.super(this); this.backColor='#FFE'; 
+        this.image          = "url('img/cherry.jpg')"
+    }
 
     Banana      .extends    (Fruit);
     Apple       .extends    (Fruit);
     Orange      .extends    (Fruit);
     Cherry      .extends    (Fruit);
 //  ----------------------------------- --------------------------- ---------------------------------
-    function    Chicken                 ()  {   Chicken     .prototype.super(this); }
+    function    Chicken                 ()  {   Chicken     .prototype.super(this); 
+        this.image          = "url('img/pollo.jpg')"
+    }
     function    Beef                    ()  {   Beef        .prototype.super(this); }
-    function    Pork                    ()  {   Pork        .prototype.super(this); this.backColor='#FEE'; }    
+    function    Pork                    ()  {   Pork        .prototype.super(this); this.backColor='#FEE';     
+        this.image          = "url('img/pork.jpg')"
+    }
 
     Chicken     .extends    (Meat);
     Beef        .extends    (Meat);
     Pork        .extends    (Meat);
 //  ----------------------------------- --------------------------- ---------------------------------
-    function    Aubergine               ()  {   Aubergine   .prototype.super(this); }
+    function    Aubergine               ()  {   Aubergine   .prototype.super(this); 
+        this.image          = "url('img/aubergine.jpg')"
+    }
     function    Broccoli                ()  {   Broccoli    .prototype.super(this); 
         this.image          = "url('img/broccoli.jpg')"
     }
-    function    Zucchini                ()  {   Zucchini    .prototype.super(this); }
+    function    Zucchini                ()  {   Zucchini    .prototype.super(this); 
+        this.image          = "url('img/zucchini.jpg')"
+    }
     function    Carrot                  ()  {   Carrot      .prototype.super(this); this.backColor='#FDD';     
         this.image          = "url('img/carrot.jpg')"
     }
@@ -250,7 +260,9 @@
     function    Baguette                ()  {   Baguette    .prototype.super(this); 
         this.image          = "url('img/baguette.jpg')"
     }
-    function    Pretzel                 ()  {   Pretzel     .prototype.super(this); this.backColor='#DFF'; }    
+    function    Pretzel                 ()  {   Pretzel     .prototype.super(this); this.backColor='#DFF';     
+        this.image          = "url('img/pretzel.jpg')"
+    }
 
     Baguette    .extends    (Bread);
     Pretzel     .extends    (Bread);
