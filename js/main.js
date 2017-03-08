@@ -97,8 +97,11 @@
                                     ,   {label:'Fruits'     ,chk:   true    }
                                     ,   {label:'Vegetables' ,chk:   true    }
                                     ,   {label:'Breads'     ,chk:   true    }
+                                    //,   {label:'Toys'       ,chk:   true    }
                                     ]
-                ,   numTilesShown   : 0                 
+                ,   len             :   categories.length                    
+                ,   width           :   '666px'
+                ,   numTilesShown   :   0                 
                 ,   apply           :   function    ()  {
                     var allTiles    =   _APP.GridCtrl.allProducts
                     ,   filt        =   this
@@ -207,7 +210,7 @@
                                             ,'Brioche'
                                             ,'Ciabatta'
                                         ]
-    ,   toys                            =   ['GameBoy']
+    //,   toys                            =   ['GameBoy']
     ,   createObjects                   =   (bundle ,outList)       =>  {                               //  build a list of Function extending a specific Function (OO alike) 
                                                                                                         //  and store them in outList
         var k
@@ -246,17 +249,22 @@
             }
         }
     }
-    ,   catList                         =   [];
+    ,   catList                         =   []
+    ,   catColors                       =   ['#AFC','#FF8','#FA6','#B86','#F8E']
     ;
     
     createObjects (    [{ 'kind' : ShopTile     , 'list' : categories   }]
                     ,catList);
+                    
+    for (var i=0; i < catList.length; i++) {
+        if (i<catColors.length && catColors[i]!==ND) catList[i].prototype.color=catColors[i];
+    }
     
     createObjects (    [{ 'kind' : catList[0]   , 'list' : vegetables   }
                     ,   { 'kind' : catList[1]   , 'list' : fruits       }
                     ,   { 'kind' : catList[2]   , 'list' : meats        }
                     ,   { 'kind' : catList[3]   , 'list' : breads       }
-                    ,   { 'kind' : catList[4]   , 'list' : toys         }
+                    //,   { 'kind' : catList[4]   , 'list' : toys         }
                     ]
                     ,_APP.model.productTypes);
     ;
