@@ -37,12 +37,12 @@
       <div class="md-toolbar-tools" ng-controller="FilterCtrl as fltCtrl">
        <div class="filterBar">
         <md-grid-list
-            md-cols             ="4" 
-            md-cols-md          ="4"
-            md-cols-gt-md       ="4" 
-            md-gutter           ="600px"
-            md-gutter-md        ="600px" 
-            md-gutter-gt-md     ="600px" 
+            md-cols             ="{{filter.len}}" 
+            md-cols-md          ="{{filter.len}}"
+            md-cols-gt-md       ="{{filter.len}}" 
+            md-gutter           ="{{filter.width}}"
+            md-gutter-md        ="{{filter.width}}" 
+            md-gutter-gt-md     ="{{filter.width}}" 
             md-row-height       ="1:1"
             md-row-height-gt-md ="1:1" 
             >
