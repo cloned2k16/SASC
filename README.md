@@ -2,7 +2,7 @@
 this code was mostly intended as a comparison test,  
 between Angular and React while trying to keep the business logic,  
 as compatible as possible between them ...   
-while also not depending on any other library   
+and also avoiding to depend on any other library   
 so that they could be also directly compared as for performances ...  
 
 # SASC
