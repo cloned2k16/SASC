@@ -221,6 +221,19 @@
         ,   lst
         ,   knd
         ,   bLen            = bundle.length
+        
+        //  a clarification here may be required ...
+        //  this 'imageExists' thing is a really bad & dirth solution (I know)
+        //  but the optimization of this part was byond the scope of this test 
+        //  the point here was to make the Tile Image fall back to the category image or to a color if none actually found on the server
+        //  this code actually wont be necessary at all by just making sure all the image are in place or using a list of actually existing ones 
+        //  either way it may become inconsistent somehow if not handled automatically in the backend
+        //  and that's the point here (the fallback thing depending on actual availability of the images having no backend at all)
+        
+        //  to achieve same thing asynchronously we need to setup a binding wich will update all the objects once we know which images actually exist
+        //  and also make sure to use a proper synchronization, in order to don't mess things up in an inconsistent way  ...
+        //  not so difficult but, has to be coded :D 
+        
         ,   imageExists     = (url) =>  {
                 var http = new XMLHttpRequest();
                     http.open('HEAD', url, false);
