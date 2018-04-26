@@ -9,4 +9,4 @@ so that they could be also directly compared as for performances ...
 ### Simple Angular Shopping Cart
 
 Check it out! [HERE](https://cloned2k16.github.io/SASC/)
-or React version [HERE](https://cloned2k16.github.io/SRSC/)  
+or React version [HERE](https://github.com/cloned2k16/SRSC)  
